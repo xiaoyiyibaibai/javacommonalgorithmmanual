@@ -23,6 +23,20 @@
     where uid = #{uid,jdbcType=VARCHAR}
   </select>
 
+    <select id="selectByLoginName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from mama_users
+        where loginname = #{loginname,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+        select
+        <include refid="Base_Column_List" />
+        from mama_users
+        where name like  concat('%', #{name,jdbcType=VARCHAR}, '%')
+    </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from mama_users
     where uid = #{uid,jdbcType=VARCHAR}
@@ -92,36 +106,6 @@
       </if>
     </trim>
   </insert>
-
-  <update id="updateByExampleSelective" parameterType="map" >
-    update mama_users
-    <set >
-      <if test="record.uid != null" >
-        uid = #{record.uid,jdbcType=VARCHAR},
-      </if>
-      <if test="record.loginname != null" >
-        loginname = #{record.loginname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.passwd != null" >
-        passwd = #{record.passwd,jdbcType=VARCHAR},
-      </if>
-      <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.updateTime != null" >
-        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.address != null" >
-        address = #{record.address,jdbcType=VARCHAR},
-      </if>
-      <if test="record.description != null" >
-        description = #{record.description,jdbcType=VARCHAR},
-      </if>
-    </set>
-  </update>
 
   <update id="updateByPrimaryKeySelective" parameterType="com.algorithm.dto.MamaUser" >
     update mama_users

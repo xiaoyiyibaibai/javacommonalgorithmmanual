@@ -20,7 +20,9 @@ public interface MamaUserMapper {
 
     MamaUser selectByPrimaryKey(String uid);
 
-    int updateByExampleSelective(@Param("record") MamaUser record, @Param("example") MamaUserExample example);
+    MamaUser selectByLoginName(@Param( "loginname" ) String loginname);
+
+    List<MamaUser> selectByName(@Param( "name" ) String name);
 
     int updateByPrimaryKeySelective(MamaUser record);
 
