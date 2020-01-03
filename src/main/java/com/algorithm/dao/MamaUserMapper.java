@@ -1,7 +1,7 @@
 package com.algorithm.dao;
 
 import com.algorithm.dto.MamaUser;
-import com.algorithm.dto.MamaUserExample;
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
