@@ -5,11 +5,9 @@ spring:
   datasource:
     url: jdbc:mysql://122.51.112.207:3306/renhaomengmama?useUnicode=true&characterEncoding=utf8
     password: root
-    username: root
+    username: Xiao@123
     driver-class-name: com.mysql.jdbc.Driver
 
 mybatis:
   # 映射文件所在路径
   mapper-locations: classpath:mappers/*.xml
-  # pojo类所在包路径
-  type-aliases-package: com.algorithm
